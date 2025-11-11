@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="PeaceConnect">
+	<link rel="shortcut icon" href="favicon.png">
+	<meta name="description" content="Peace, Society and Inclusion News" />
+	<meta name="keywords" content="peace, society, inclusion, volunteer" />
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="fonts/icomoon/style.css">
+	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+	<link rel="stylesheet" href="css/tiny-slider.css">
+	<link rel="stylesheet" href="css/aos.css">
+	<link rel="stylesheet" href="css/flatpickr.min.css">
+	<link rel="stylesheet" href="css/glightbox.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<title>News - PeaceConnect</title>
+	
+	<style>
+		
+		.comment-section {
+			background: #ffffff;
+			border-radius: 12px;
+			padding: 2rem;
+			margin: 2rem 0;
+			box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+		}
+		
+		.comment-item {
+			background: #f8f9fa;
+			padding: 1.5rem;
+			border-radius: 10px;
+			margin-bottom: 1.5rem;
+			border-left: 4px solid #5cb85c;
+			transition: all 0.3s ease;
+		}
+		
+		.comment-item:hover {
+			box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+			transform: translateX(5px);
+		}
+		
+		.comment-header {
+			display: flex;
+			align-items: center;
+			margin-bottom: 1rem;
+		}
+		
+		.comment-avatar {
+			width: 45px;
+			height: 45px;
+			border-radius: 50%;
+			background: linear-gradient(135deg, #5cb85c, #4a9d4a);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: white;
+			font-weight: bold;
+			margin-right: 1rem;
+		}
+		
+		.comment-meta {
+			flex-grow: 1;
+		}
+		
+		.comment-author {
+			font-weight: 700;
+			color: #333;
+			margin: 0;
+		}
+		
+		.comment-date {
+			font-size: 0.85rem;
+			color: #888;
+		}
+		
+		.comment-text {
+			color: #555;
+			line-height: 1.6;
+			margin-bottom: 0.5rem;
+		}
+		
+		.reply-btn {
+			background: transparent;
+			border: 2px solid #5cb85c;
+			color: #5cb85c;
+			padding: 0.4rem 1.2rem;
+			border-radius: 20px;
+			font-size: 0.9rem;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			font-weight: 600;
+		}
+		
+		.reply-btn:hover {
+			background: #5cb85c;
+			color: white;
+		}
+		
+		.comment-form {
+			background: #ffffff;
+			border-radius: 12px;
+			padding: 2rem;
+			margin: 2rem 0;
+			box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+		}
+		
+		.form-title {
+			color: #333;
+			font-size: 1.5rem;
+			margin-bottom: 1.5rem;
+			font-weight: 700;
+		}
+		
+		.form-group {
+			margin-bottom: 1.5rem;
+		}
+		
+		.form-label {
+			display: block;
+			margin-bottom: 0.5rem;
+			color: #555;
+			font-weight: 600;
+		}
+		
+		.form-control {
+			width: 100%;
+			padding: 0.8rem 1rem;
+			border: 2px solid #e0e0e0;
+			border-radius: 8px;
+			font-size: 1rem;
+			transition: all 0.3s ease;
+			font-family: 'Roboto', sans-serif;
+		}
+		
+		.form-control:focus {
+			outline: none;
+			border-color: #5cb85c;
+			box-shadow: 0 0 0 3px rgba(92,184,92,0.1);
+		}
+		
+		textarea.form-control {
+			resize: vertical;
+			min-height: 120px;
+		}
+		
+		.btn-submit {
+			background: linear-gradient(135deg, #5cb85c, #4a9d4a);
+			color: white;
+			padding: 0.9rem 2.5rem;
+			border: none;
+			border-radius: 25px;
+			font-size: 1rem;
+			font-weight: 700;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			box-shadow: 0 4px 12px rgba(92,184,92,0.3);
+		}
+		
+		.btn-submit:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 6px 16px rgba(92,184,92,0.4);
+		}
+		
+		.auth-prompt {
+			background: #fff3cd;
+			border-left: 4px solid #ffc107;
+			padding: 1.2rem;
+			border-radius: 8px;
+			margin-bottom: 1.5rem;
+		}
+		
+		.auth-links {
+			display: flex;
+			gap: 1rem;
+			margin-top: 0.8rem;
+		}
+		
+		.auth-link {
+			color: #5cb85c;
+			text-decoration: none;
+			font-weight: 600;
+			padding: 0.5rem 1.2rem;
+			border: 2px solid #5cb85c;
+			border-radius: 20px;
+			transition: all 0.3s ease;
+		}
+		
+		.auth-link:hover {
+			background: #5cb85c;
+			color: white;
+		}
+		
+		.newsletter-section {
+			background: linear-gradient(135deg, #5cb85c, #4a9d4a);
+			padding: 3rem 2rem;
+			border-radius: 12px;
+			color: white;
+			text-align: center;
+			margin: 3rem 0;
+			box-shadow: 0 8px 20px rgba(92,184,92,0.3);
+		}
+		
+		.newsletter-title {
+			font-size: 2rem;
+			font-weight: 700;
+			margin-bottom: 0.5rem;
+		}
+		
+		.newsletter-subtitle {
+			font-size: 1.1rem;
+			margin-bottom: 2rem;
+			opacity: 0.9;
+		}
+		
+		.newsletter-form {
+			display: flex;
+			max-width: 500px;
+			margin: 0 auto;
+			gap: 1rem;
+		}
+		
+		.newsletter-input {
+			flex: 1;
+			padding: 1rem 1.5rem;
+			border: none;
+			border-radius: 25px;
+			font-size: 1rem;
+		}
+		
+		.newsletter-btn {
+			background: white;
+			color: #5cb85c;
+			padding: 1rem 2rem;
+			border: none;
+			border-radius: 25px;
+			font-weight: 700;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			white-space: nowrap;
+		}
+		
+		.newsletter-btn:hover {
+			transform: scale(1.05);
+			box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+		}
+		
+		.recent-posts {
+			background: #ffffff;
+			border-radius: 12px;
+			padding: 2rem;
+			margin: 2rem 0;
+			box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+		}
+		
+		.recent-post-item {
+			display: flex;
+			gap: 1rem;
+			padding: 1rem 0;
+			border-bottom: 1px solid #e0e0e0;
+			transition: all 0.3s ease;
+		}
+		
+		.recent-post-item:last-child {
+			border-bottom: none;
+		}
+		
+		.recent-post-item:hover {
+			transform: translateX(5px);
+		}
+		
+		.recent-post-img {
+			width: 80px;
+			height: 80px;
+			border-radius: 8px;
+			object-fit: cover;
+		}
+		
+		.recent-post-content h4 {
+			font-size: 1rem;
+			margin: 0 0 0.5rem 0;
+			color: #333;
+		}
+		
+		.recent-post-content h4 a {
+			color: #333;
+			text-decoration: none;
+			transition: color 0.3s ease;
+		}
+		
+		.recent-post-content h4 a:hover {
+			color: #5cb85c;
+		}
+		
+		.recent-post-date {
+			font-size: 0.85rem;
+			color: #888;
+		}
+		
+		.sidebar {
+			position: sticky;
+			top: 20px;
+		}
+		
+		@media (max-width: 768px) {
+			.newsletter-form {
+				flex-direction: column;
+			}
+			
+			.auth-links {
+				flex-direction: column;
+			}
+			
+			.sidebar {
+				position: static;
+			}
+		}
+	</style>
+</head>
+<body>
+
+	<div class="site-mobile-menu site-navbar-target">
+		<div class="site-mobile-menu-header">
+			<div class="site-mobile-menu-close">
+				<span class="icofont-close js-menu-toggle"></span>
+			</div>
+		</div>
+		<div class="site-mobile-menu-body"></div>
+	</div>
+
+	<nav class="site-nav">
+		<div class="container">
+			<div class="menu-bg-wrap">
+				<div class="site-navigation">
+					<div class="row g-0 align-items-center">
+						<div class="col-2">
+							<a href="index.html" class="logo m-0 float-start text-white">PeaceConnect</a>
+						</div>
+						<div class="col-8 text-center">
+							<ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
+								
+								
+								<li class="active"><a href="news.html">News</a></li>
+								
+							</ul>
+						</div>
+						<div class="col-2 text-end">
+							<a href="#" class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
+								<span></span>
+							</a>
+							<a href="#" class="call-us d-flex align-items-center">
+								<span class="icon-phone"></span>
+								<span>123-489-9381</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="hero overlay" style="background-image: url('images/img_v_6-min.jpg')">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-6 text-center mx-auto">
+					<span class="subheading-white text-white mb-3" data-aos="fade-up">News & Updates</span>
+					<h1 class="heading text-white mb-2" data-aos="fade-up">Latest Stories</h1>
+					<p data-aos="fade-up" class="mb-5 text-white lead text-white-50">Discover inspiring stories of peace, society transformation, and inclusive communities.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section bg-light">
+		<div class="container">
+			<div class="row">
+				<!-- Main Content -->
+				<div class="col-lg-8">
+					<!-- News Articles -->
+					<div class="row">
+						<div class="col-lg-6 col-md-6 mb-4">
+							<div class="causes-item bg-white">
+								<a href="#"><img src="images/img_v_1-min.jpg" alt="Image" class="img-fluid mb-4 rounded"></a>
+								<div class="px-4 pb-3 pt-3">
+									<span class="date">May 11, 2020</span>
+									<h3><a href="#">Food for the Hungry</a></h3>
+									<p>Building sustainable food programs for communities in need across the region.</p>
+									<p><a href="#" class="d-flex align-items-center more2"><span>Read More</span> <span class="icon-chevron-right"></span></a></p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-6 col-md-6 mb-4">
+							<div class="causes-item bg-white">
+								<a href="#"><img src="images/img_v_2-min.jpg" alt="Image" class="img-fluid mb-4 rounded"></a>
+								<div class="px-4 pb-3 pt-3">
+									<span class="date">May 11, 2020</span>
+									<h3><a href="#">Education for Children</a></h3>
+									<p>Empowering the next generation through accessible quality education programs.</p>
+									<p><a href="#" class="d-flex align-items-center more2"><span>Read More</span> <span class="icon-chevron-right"></span></a></p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-6 col-md-6 mb-4">
+							<div class="causes-item bg-white">
+								<a href="#"><img src="images/img_v_3-min.jpg" alt="Image" class="img-fluid mb-4 rounded"></a>
+								<div class="px-4 pb-3 pt-3">
+									<span class="date">May 11, 2020</span>
+									<h3><a href="#">Support Livelihood</a></h3>
+									<p>Creating sustainable economic opportunities for marginalized communities.</p>
+									<p><a href="#" class="d-flex align-items-center more2"><span>Read More</span> <span class="icon-chevron-right"></span></a></p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-6 col-md-6 mb-4">
+							<div class="causes-item bg-white">
+								<a href="#"><img src="images/img_v_4-min.jpg" alt="Image" class="img-fluid mb-4 rounded"></a>
+								<div class="px-4 pb-3 pt-3">
+									<span class="date">May 11, 2020</span>
+									<h3><a href="#">Community Health</a></h3>
+									<p>Promoting wellness and healthcare access in underserved areas.</p>
+									<p><a href="#" class="d-flex align-items-center more2"><span>Read More</span> <span class="icon-chevron-right"></span></a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Newsletter Section -->
+					<div class="newsletter-section" data-aos="fade-up">
+						<h2 class="newsletter-title">📧 Stay Connected</h2>
+						<p class="newsletter-subtitle">Subscribe to receive the latest news and updates</p>
+						<form class="newsletter-form" onsubmit="return false;">
+							<input type="email" class="newsletter-input" placeholder="email@example.com" required>
+							<button type="submit" class="newsletter-btn">Subscribe</button>
+						</form>
+					</div>
+
+					<!-- Comments Section -->
+					<div class="comment-section" data-aos="fade-up">
+						<h2 class="form-title">💬 Community Comments (24)</h2>
+						
+						<div class="comment-item">
+							<div class="comment-header">
+								<div class="comment-avatar">SA</div>
+								<div class="comment-meta">
+									<p class="comment-author">Sarah Anderson</p>
+									<span class="comment-date">2 days ago</span>
+								</div>
+							</div>
+							<p class="comment-text">This initiative is truly inspiring! I've been volunteering for 3 months now and the impact we're making is incredible. The education program has already helped over 200 children.</p>
+							<button class="reply-btn" onclick="alert('Please login to reply')">↩ Reply</button>
+						</div>
+
+						<div class="comment-item">
+							<div class="comment-header">
+								<div class="comment-avatar">MK</div>
+								<div class="comment-meta">
+									<p class="comment-author">Mohammed Kk</p>
+									<span class="comment-date">5 days ago</span>
+								</div>
+							</div>
+							<p class="comment-text">The food program in our community has been life-changing. Thank you to all the volunteers and organizers. We need more initiatives like this worldwide.</p>
+							<button class="reply-btn" onclick="alert('Please login to reply')">↩ Reply</button>
+						</div>
+
+						<div class="comment-item">
+							<div class="comment-header">
+								<div class="comment-avatar">LM</div>
+								<div class="comment-meta">
+									<p class="comment-author">Lisa Martinez</p>
+									<span class="comment-date">1 week ago</span>
+								</div>
+							</div>
+							<p class="comment-text">How can I get involved? I'm a teacher and would love to contribute to the education programs. The work you're doing aligns perfectly with my values.</p>
+							<button class="reply-btn" onclick="alert('Please login to reply')">↩ Reply</button>
+						</div>
+					</div>
+
+					<!-- Comment Form -->
+					<div class="comment-form" data-aos="fade-up">
+						<h2 class="form-title">✍️ Leave a Comment</h2>
+						
+						<div class="auth-prompt">
+							<p style="margin: 0 0 0.5rem 0; font-weight: 600; color: #856404;">
+								⚠️ You must be logged in to post a comment
+							</p>
+							<div class="auth-links">
+								<a href="#" class="auth-link" onclick="showLoginForm(); return false;">🔐 Login</a>
+								<a href="#" class="auth-link" onclick="showRegisterForm(); return false;">✨ Create Account</a>
+							</div>
+						</div>
+
+						<form id="commentForm" onsubmit="return false;">
+							<div class="form-group">
+								<label class="form-label" for="commentText">Your Comment</label>
+								<textarea class="form-control" id="commentText" placeholder="Share your thoughts..." disabled></textarea>
+							</div>
+							<button type="submit" class="btn-submit" disabled>Send Comment</button>
+						</form>
+					</div>
+				</div>
+
+				<!-- Sidebar -->
+				<div class="col-lg-4">
+					<div class="sidebar">
+						<!-- Recent Posts -->
+						<div class="recent-posts" data-aos="fade-up">
+							<h3 class="form-title">📰 Recent Posts</h3>
+							
+							<div class="recent-post-item">
+								<img src="images/img_v_5-min.jpg" alt="Post" class="recent-post-img">
+								<div class="recent-post-content">
+									<h4><a href="#">Women Empowerment Workshop</a></h4>
+									<span class="recent-post-date">Nov 8, 2025</span>
+								</div>
+							</div>
+
+							<div class="recent-post-item">
+								<img src="images/img_v_6-min.jpg" alt="Post" class="recent-post-img">
+								<div class="recent-post-content">
+									<h4><a href="#">Youth Leadership Summit</a></h4>
+									<span class="recent-post-date">Nov 5, 2025</span>
+								</div>
+							</div>
+
+							<div class="recent-post-item">
+								<img src="images/img_v_7-min.jpg" alt="Post" class="recent-post-img">
+								<div class="recent-post-content">
+									<h4><a href="#">Clean Water Initiative</a></h4>
+									<span class="recent-post-date">Nov 1, 2025</span>
+								</div>
+							</div>
+
+							<div class="recent-post-item">
+								<img src="images/img_v_8-min.jpg" alt="Post" class="recent-post-img">
+								<div class="recent-post-content">
+									<h4><a href="#">Community Gardens Project</a></h4>
+									<span class="recent-post-date">Oct 28, 2025</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Pagination -->
+			<div class="row align-items-center py-5">
+				<div class="col-lg-12 text-center">
+					<div class="custom-pagination">
+						<a href="#">1</a>
+						<a href="#" class="active">2</a>
+						<a href="#">3</a>
+						<a href="#">4</a>
+						<a href="#">5</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="site-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-6 col-sm-6 col-md-6 col-lg-3">
+					<div class="widget">
+						<h3>Navigation</h3>
+						<ul class="list-unstyled float-left links">
+							<li><a href="#">About us</a></li>
+							<li><a href="#">Donate Now</a></li>
+							<li><a href="#">Causes</a></li>
+							<li><a href="#">Volunteer</a></li>
+							<li><a href="#">Terms</a></li>
+							<li><a href="#">Privacy</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-6 col-sm-6 col-md-6 col-lg-3">
+					<div class="widget">
+						<h3>Popular Causes</h3>
+						<ul class="list-unstyled float-left links">
+							<li><a href="#">Food for the Hungry</a></li>
+							<li><a href="#">Education for Children</a></li>
+							<li><a href="#">Support for Livelihood</a></li>
+							<li><a href="#">Medical Mission</a></li>
+							<li><a href="#">Education</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-6 col-sm-6 col-md-6 col-lg-3">
+					<div class="widget">
+						<h3>Services</h3>
+						<ul class="list-unstyled float-left links">
+							<li><a href="#">Causes</a></li>
+							<li><a href="#">Volunteer</a></li>
+							<li><a href="#">Terms</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-6 col-sm-6 col-md-6 col-lg-3">
+					<div class="widget">
+						<h3>Contact</h3>
+						<address>43 Raymouth Rd. Baltimore, London 3910</address>
+						<ul class="list-unstyled links mb-4">
+							<li><a href="tel://11234567890">+1(123)-456-7890</a></li>
+							<li><a href="mailto:info@peaceconnect.org">info@peaceconnect.org</a></li>
+						</ul>
+
+						<h3>Connect</h3>
+						<ul class="list-unstyled social">
+							<li><a href="#"><span class="icon-instagram"></span></a></li>
+							<li><a href="#"><span class="icon-twitter"></span></a></li>
+							<li><a href="#"><span class="icon-facebook"></span></a></li>
+							<li><a href="#"><span class="icon-linkedin"></span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="row mt-5">
+				<div class="col-12 text-center">
+					<p class="copyright">Copyright &copy;2025 PeaceConnect. All Rights Reserved.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="overlayer"></div>
+	<div class="loader">
+		<div class="spinner-border text-primary" role="status">
+			<span class="visually-hidden">Loading...</span>
+		</div>
+	</div>
+
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/tiny-slider.js"></script>
+	<script src="js/flatpickr.min.js"></script>
+	<script src="js/glightbox.min.js"></script>
+	<script src="js/aos.js"></script>
+	<script src="js/navbar.js"></script>
+	<script src="js/counter.js"></script>
+	<script src="js/custom.js"></script>
+
+	<script>
+		function showLoginForm() {
+			alert('Login functionality will be implemented by the backend team. This would typically redirect to a login page.');
+		}
+
+		function showRegisterForm() {
+			alert('Registration functionality will be implemented by the backend team. This would typically redirect to a registration page.');
+		}
+	</script>
+</body>
+</html>
